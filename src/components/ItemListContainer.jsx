@@ -1,11 +1,12 @@
-import Item from './ItemListContainer.css';
+import ItemList from './ItemList';
+import './ItemListContainer.css';
 
-const ItemListContainer = ({ greeting }) => {
+export default function ItemListContainer({ greeting }) {
     return (
-        <main>
-            <h1 className={Item.texto}>{greeting}</h1>
-        </main>
-)
-};
-
-export default ItemListContainer
+        
+        <div className= "item-list-container">
+            <h1>{greeting}</h1>
+            <ItemList />
+        </div>
+);
+}

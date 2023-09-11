@@ -20,6 +20,9 @@
 .nav_toogle {
     display: none;
 }
+a:hover, a.active {
+    color: blueviolet;
+}
 
 @media (max-width: 768px) {
     .nav_items{
