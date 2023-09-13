@@ -13,15 +13,11 @@ function getProductos() {
 }
 export default function ItemList({productos}) {
     return (
-        <Link style={{display: "flex", flexWrap:"wrap", gap: 20 }} className="item-list">
+        <NavLink style={{display: "flex", flexWrap:"wrap", gap: 20 }} className="item-list">
             {productos.map((productos) => (
-                
-                    <NavLink to={`/inicio/${productos.nombreCategoria}`}>
-                        <Item key={productos.id} producto={productos} />
-                    </NavLink>
-                
+                <Item key={productos.id} producto={productos} />               
             ))}
-        </Link>
+        </NavLink>
     );
 
 }

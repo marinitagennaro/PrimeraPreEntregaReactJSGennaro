@@ -14,8 +14,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route exact path='/' element={<ItemListContainer greeting= "Sean bienvenidos al lugar donde podes encontrar lo que quieras al crochet"/>}/>
-        <Route exact path='/item/:id' element={<ItemDetailContainer />}/>
         <Route exact path='/categoria/:id' element={<ItemListContainer />}/>
+        <Route exact path='/nombre/:nombre' element={<ItemDetailContainer />}/>
       </Routes>
     </BrowserRouter>
   );

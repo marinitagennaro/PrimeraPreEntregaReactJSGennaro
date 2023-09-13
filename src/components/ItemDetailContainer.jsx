@@ -12,30 +12,30 @@ const mockAPI = () => {
 }
 
 export default function ItemDetailContainer () {
-    const [productos, getProductos] = useState([]);
-    const { id } = useParams();
+    const[productos, getProductos] = useState(data);
+    const { nombre } = useParams();
 
     useEffect(() => {
-        if(!id) {
+        if(!nombre) {
             mockAPI().then((data) => getProductos(data));
         }else{
             mockAPI().then((data) => {
-                const productoEncontrado = data.find(item => item.nombre === id)
+                const productoEncontrado = data.find(item => item.nombre === nombre)
                 getProductos(productoEncontrado)
             });  
         }
     
-    }, [id]);
+    }, [nombre]);
 
 
 
 
-    if(!productos) return null;
+   // if(!producto) return null;
 
 
     return (
         <div className="item-detail-container">
-            <ItemDetail productos={productos} />
+            <ItemDetail producto={productos} />
         </div>
     );
 }

@@ -31,10 +31,8 @@ export default function ItemListContainer({ greeting }) {
     return (
         
         <div className= "item-list-container">
-            <Link to={`/`}>
                 <h1>{greeting}</h1>
                 <ItemList productos={productos}/>
-            </Link>
         </div>
 );
 }
