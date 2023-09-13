@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-//import ItemList from "./ItemList";
+import ItemList from "./ItemList";
+import productos from "../productos.json"
 
+function asyncMock(tipo) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(!tipo) {
+                resolve(productos)
+            }else{
+                const resultado = productos.filter((valor) => {
+                    return valor.categoria === tipo
+                })
+                resolve(resultado)
+            }
+        }, 2000)
+    })
+}
 
 export default function Categorias() {
     const [categoria, setCategoria] = useState();
@@ -9,10 +24,7 @@ export default function Categorias() {
     const { tipo } = useParams()
 
     useEffect(() => {
-        fetch(`productos.json/${categoria}`)
-        .then((res) => res.json())
-        .then((data) => setCategoria(data))
-        .finally(() => setLoading(false));
+        asyncMock(tipo).then(res => setCategoria(res) )
     }, [tipo]);
 
     if(loading) {
@@ -21,12 +33,12 @@ export default function Categorias() {
 
     return (
         <main>
-            <h1>{categoria.nombre}</h1>
+            <h1 style={{marginBottom: "2em"}}>{categoria.productos.nombre}</h1>
             <section style={{display: "flex", flexWrap: "wrap", gap:20 }}>
                 {categoria.productos.map((item) => (
-                    <a href={``}>
+                    <Link to={`/categorias/${item.productos.nombre}`}>
                         <h2 style={{textTransform:"capitalize"}}>{item.productos.nombre}</h2>
-                    </a>
+                    </Link>
                 ))}
             </section>
         </main>

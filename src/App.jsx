@@ -10,17 +10,14 @@ import Categorias from './components/Categorias'
 function App() {
 
   return (
-    <>
     <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route exact path='/' element={<ItemListContainer greeting= "Sean bienvenidos al lugar donde podes encontrar lo que quieras al crochet"/>}/>
-        <Route exact path='/' element={<ItemDetailContainer />}></Route>
-        <Route exact path='categorias/:tipo' element={<Categorias/>}></Route>
-        {/*<Route exact path='/' element={<ItemCount />}></Route>*/}
+        <Route exact path='/item/:id' element={<ItemDetailContainer />}/>
+        <Route exact path='/categoria/:id' element={<ItemListContainer />}/>
       </Routes>
     </BrowserRouter>
-    </>
   );
 }
 

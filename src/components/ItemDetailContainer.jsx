@@ -1,20 +1,41 @@
 import { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail"
+import ItemDetail from "./ItemDetail";
+import { useParams } from 'react-router-dom';
+import productos from "../productos.json";
+
+const mockAPI = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(productos);
+        }, 2000);
+    });
+}
 
 export default function ItemDetailContainer () {
-    const[producto, setProducto] = useState();
+    const [productos, getProductos] = useState([]);
+    const { id } = useParams();
 
     useEffect(() => {
-        fetch("productos.json")
-        .then((res) => res.json())
-        .then((data) => setProducto(data));
-    }, []);
+        if(!id) {
+            mockAPI().then((data) => getProductos(data));
+        }else{
+            mockAPI().then((data) => {
+                const productoEncontrado = data.find(item => item.nombre === id)
+                getProductos(productoEncontrado)
+            });  
+        }
+    
+    }, [id]);
 
-    if(!producto) return null;
+
+
+
+    if(!productos) return null;
+
 
     return (
         <div className="item-detail-container">
-            <ItemDetail producto={producto} />
+            <ItemDetail productos={productos} />
         </div>
     );
 }

@@ -5,7 +5,7 @@
         "stock": 10,
         "nombre": "Gorro rojo",
         "precio": 3500,
-        "categoria": "gorros",
+        "categoria": "Gorros",
         "imagen": "gorros-con-caida.jpg"
     },
     {
@@ -14,7 +14,7 @@
         "stock": 7,
         "nombre": "Gorro amarillo",
         "precio": 3500,
-        "categoria": "gorros",
+        "categoria": "Gorros",
         "imagen": "gorros-con-caida.jpg"
     },
     {
@@ -23,7 +23,7 @@
         "stock": 5,
         "nombre": "Gorro negro",
         "precio": 3500,
-        "categoria": "gorros",
+        "categoria": "Gorros",
         "imagen": "gorros.jpg"
     },
     {
@@ -38,7 +38,7 @@
     {
         "id": 5,
         "descuento": 0,
-        "cantidad disponible": 3,
+        "stock": 3,
         "nombre": "Almohadon espiga",
         "precio": 9500,
         "categoria": "Almohadones",
@@ -77,7 +77,7 @@
         "stock": 1,
         "nombre": "Cartera rodonda",
         "precio": 11000,
-        "categoria": "Prendas para vestir",
+        "categoria": "Prendas",
         "imagen": "cartera-rodonda.jpg"
     },
     {
@@ -86,7 +86,7 @@
         "stock": 5,
         "nombre": "Top corto",
         "precio": 5500,
-        "categoria": "Prendas para vestir",
+        "categoria": "Prendas",
         "imagen": "top-corto.jpg"
     },
     {
@@ -95,7 +95,7 @@
         "stock": 3,
         "nombre": "Top Marilin",
         "precio": 7500,
-        "categoria": "Prendas para vestir",
+        "categoria": "Prendas",
         "imagen": "top-flor-marilin.jpg"
     },
     {

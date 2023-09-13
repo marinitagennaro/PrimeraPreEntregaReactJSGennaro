@@ -1,34 +1,27 @@
 import React, {useEffect, useState} from "react";
 import productosJson from "../productos.json";
 import Item from "./Item";
+import { Link, NavLink } from "react-router-dom";
+
 
 function getProductos() {
-    return new Promise ((resolve) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(productosJson);
-        }, 2000);
-    });
+        }, 2000)
+    })
 }
-
-export default function ItemList() {
-    const [productos, setProductos] = useState([]);
-    const [loading, setLoading] = useState(true)
-    
-    useEffect(() => {
-        getProductos().then((data) => {
-            setProductos(data);
-            setLoading(false);
-        })
-    }, []);
-
-    if (loading) return <p>Cargando...</p>
-
+export default function ItemList({productos}) {
     return (
-        <div className="item-list">
-            {productos.map((producto) => (
-                <Item key={producto.id} producto={producto} />
+        <Link style={{display: "flex", flexWrap:"wrap", gap: 20 }} className="item-list">
+            {productos.map((productos) => (
+                
+                    <NavLink to={`/inicio/${productos.nombreCategoria}`}>
+                        <Item key={productos.id} producto={productos} />
+                    </NavLink>
+                
             ))}
-        </div>
+        </Link>
     );
 
 }
